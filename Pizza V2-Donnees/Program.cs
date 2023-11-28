@@ -105,33 +105,38 @@ namespace projet_pizza
         {
 
 
-            var pizzas = new List<pizza>
-            {
-                new pizza("4 fromages", 11.5f, true, new List<string>{"Fromage de chèvre", "Canta","Mozarella"}),
-                new pizza("indienne", 10.5f, false, new List<string>{"Poulet", "Oignon","Mozarella"} ),
-                new pizza("mexicaine", 13f, false, new List<string>{"Boeuf", "tomate","Mozarella"," persil"}),
-                new pizza("Margherita", 8f, true, new List<string>{"sauce tomate","Mozarella"}),
-                new pizza("calzone", 12f, false,new List<string>{"kebab", "Oignon","Mozarella"}),
-                new pizza("complète", 9.5f, false,new List<string>{"saumon", "Oignon","Mozarella","tomates"}),
-            //    new PizzaPersonalisee(),
-            //    new PizzaPersonalisee()
+            //var pizzas = new List<pizza>
+            //{
+            //    new pizza("4 fromages", 11.5f, true, new List<string>{"Fromage de chèvre", "Canta","Mozarella"}),
+            //    new pizza("indienne", 10.5f, false, new List<string>{"Poulet", "Oignon","Mozarella"} ),
+            //    new pizza("mexicaine", 13f, false, new List<string>{"Boeuf", "tomate","Mozarella"," persil"}),
+            //    new pizza("Margherita", 8f, true, new List<string>{"sauce tomate","Mozarella"}),
+            //    new pizza("calzone", 12f, false,new List<string>{"kebab", "Oignon","Mozarella"}),
+            //    new pizza("complète", 9.5f, false,new List<string>{"saumon", "Oignon","Mozarella","tomates"}),
+            ////    new PizzaPersonalisee(),
+            ////    new PizzaPersonalisee()
 
-            };
+            //};
 
-            var path = "Fichier Json";
-            if(!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
+           var path = "Fichier Json";
+           // if(!Directory.Exists(path))
+           // {
+           //     Directory.CreateDirectory(path);
+           // }
 
            string filename = "Pizza.Json";
 
            var pathAndFile = Path.Combine(path, filename);
 
-           string json = JsonConvert.SerializeObject(pizzas);
-           Console.WriteLine(json);  
-            
-           File.WriteAllText(pathAndFile, json);
+            //string json = JsonConvert.SerializeObject(pizzas);
+            //Console.WriteLine(json);  
+
+            //File.WriteAllText(pathAndFile, json);
+
+            string file = File.ReadAllText(pathAndFile);
+            Console.Write(file);
+
+            var pizzas = JsonConvert.DeserializeObject<List<pizza>>(file);
 
 
             foreach (var pizza in pizzas)
@@ -157,11 +162,11 @@ namespace projet_pizza
 
             //listepizzas = listepizzas.Where(p => p.ContientIngredient("tomate")).ToList();
 
-            foreach (var pizza in pizzas)
-            {
-                pizza.Afficher();
+            //foreach (var pizza in pizzas)
+            //{
+            //    pizza.Afficher();
 
-            }
+            //}
 
             Console.WriteLine("------------------------FIN LES PIZZAS AVEC TOMATES--------------------------------");
         }
