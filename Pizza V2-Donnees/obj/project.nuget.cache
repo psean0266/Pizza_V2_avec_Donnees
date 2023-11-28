@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "s+sz1W0CXzxdA1ILKAyAo1Do1RKSU+7Tyfzm0o5l18qYQqouEuc7WG+leME4Wsr1atzvaKOsaf3JfTARzqKcMA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\AbdoulayePangnonKOUL\\source\\repos\\Jonathan\\Pizza V2-Donnees\\Pizza V2-Donnees\\Pizza V2-Donnees.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\AbdoulayePangnonKOUL\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
