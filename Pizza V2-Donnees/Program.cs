@@ -103,6 +103,15 @@ namespace projet_pizza
     {
         static void Main(string[] args)
         {
+            var path = "Fichier Json";
+
+            // if(!Directory.Exists(path))
+            // {
+            //     Directory.CreateDirectory(path);
+            // }
+
+            string filename = "Pizza.Json";
+            var pathAndFile = Path.Combine(path, filename);
 
 
             //var pizzas = new List<pizza>
@@ -118,25 +127,37 @@ namespace projet_pizza
 
             //};
 
-           var path = "Fichier Json";
-           // if(!Directory.Exists(path))
-           // {
-           //     Directory.CreateDirectory(path);
-           // }
-
-           string filename = "Pizza.Json";
-
-           var pathAndFile = Path.Combine(path, filename);
 
             //string json = JsonConvert.SerializeObject(pizzas);
             //Console.WriteLine(json);  
 
             //File.WriteAllText(pathAndFile, json);
 
-            string file = File.ReadAllText(pathAndFile);
-            Console.Write(file);
+            string JsonFile = null;
+            try
+            {
+                 JsonFile = File.ReadAllText(pathAndFile);
+            }
+            catch
+            {
+                Console.WriteLine("Erreur de lecture du fichier" + filename);
+                return;
+            }
+           
+            Console.Write(JsonFile);
 
-            var pizzas = JsonConvert.DeserializeObject<List<pizza>>(file);
+            List<pizza> pizzas = new List<pizza>();
+            try
+            {
+                 pizzas = JsonConvert.DeserializeObject<List<pizza>>(JsonFile);
+            }
+            catch 
+            {
+                Console.WriteLine(" Erreur : Les données ne sont pas valides ");
+                return;
+            }
+
+            
 
 
             foreach (var pizza in pizzas)
